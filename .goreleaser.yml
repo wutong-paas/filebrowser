@@ -14,7 +14,6 @@ build:
     - linux
   goarch:
     - amd64
-    - arm64
 
 dockers:
   -
@@ -27,9 +26,9 @@ dockers:
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--label=org.opencontainers.image.source={{.GitURL}}"
-      - "--platform=linux/amd64,linux/arm64"
+      - "--platform=linux/amd64"
     goos: linux
-    goarch: amd64,arm64
+    goarch: amd64
     image_templates:
       - "wutongpaas/filebrowser"
     extra_files:
