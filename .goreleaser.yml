@@ -33,7 +33,7 @@ dockers:
     image_templates:
       - "wutongpaas/filebrowser:amd64"
     extra_files:
-      - docker_config
+      - docker_config.json
       
   -
     dockerfile: Dockerfile
