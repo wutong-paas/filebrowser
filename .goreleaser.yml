@@ -38,5 +38,5 @@ dockers:
 docker_manifests:
   - name_template: "wutongpaas/filebrowser:latest"
     image_templates:
-      - "wutongpaas/filebrowser:{{ .Tag }}-amd64"
-      - "wutongpaas/filebrowser:{{ .Tag }}-arm64"
+      - "wutongpaas/filebrowser"
+      - "wutongpaas/filebrowser"
