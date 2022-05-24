@@ -53,8 +53,8 @@ dockers:
     goos: linux
     goarch: amd64
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-amd64"
-      - "filebrowser/filebrowser:v{{ .Major }}-amd64"
+      - "wutongpaas/filebrowser:{{ .Tag }}-amd64"
+      - "wutongpaas/filebrowser:v{{ .Major }}-amd64"
     extra_files:
       - docker_config.json
   -
@@ -71,8 +71,8 @@ dockers:
     goos: linux
     goarch: arm64
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-arm64"
-      - "filebrowser/filebrowser:v{{ .Major }}-arm64"
+      - "wutongpaas/filebrowser:{{ .Tag }}-arm64"
+      - "wutongpaas/filebrowser:v{{ .Major }}-arm64"
     extra_files:
       - docker_config.json
   -
@@ -90,8 +90,8 @@ dockers:
     goarch: arm
     goarm: '6'
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-armv6"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv6"
     extra_files:
       - docker_config.json
   -
@@ -109,8 +109,8 @@ dockers:
     goarch: arm
     goarm: '7'
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-armv7"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv7"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv7"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv7"
     extra_files:
       - docker_config.json
 ## s6 based docker images
@@ -128,8 +128,8 @@ dockers:
     goos: linux
     goarch: amd64
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-amd64-s6"
-      - "filebrowser/filebrowser:v{{ .Major }}-amd64-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-amd64-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-amd64-s6"
     extra_files:
       - docker/root
   -
@@ -146,8 +146,8 @@ dockers:
     goos: linux
     goarch: arm64
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-arm64-s6"
-      - "filebrowser/filebrowser:v{{ .Major }}-arm64-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-arm64-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-arm64-s6"
     extra_files:
       - docker/root
   -
@@ -165,8 +165,8 @@ dockers:
     goarch: arm
     goarm: '6'
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-armv6-s6"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv6-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv6-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv6-s6"
     extra_files:
       - docker/root
   -
@@ -184,48 +184,48 @@ dockers:
     goarch: arm
     goarm: '7'
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-armv7-s6"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv7-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv7-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv7-s6"
     extra_files:
       - docker/root
 docker_manifests:
-  - name_template: "filebrowser/filebrowser:latest"
+  - name_template: "wutongpaas/filebrowser:latest"
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-amd64"
-      - "filebrowser/filebrowser:{{ .Tag }}-arm64"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv6"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv7"
-  - name_template: "filebrowser/filebrowser:{{ .Tag }}"
+      - "wutongpaas/filebrowser:{{ .Tag }}-amd64"
+      - "wutongpaas/filebrowser:{{ .Tag }}-arm64"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv7"
+  - name_template: "wutongpaas/filebrowser:{{ .Tag }}"
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-amd64"
-      - "filebrowser/filebrowser:{{ .Tag }}-arm64"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv6"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv7"
-  - name_template: "filebrowser/filebrowser:v{{ .Major }}"
+      - "wutongpaas/filebrowser:{{ .Tag }}-amd64"
+      - "wutongpaas/filebrowser:{{ .Tag }}-arm64"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv7"
+  - name_template: "wutongpaas/filebrowser:v{{ .Major }}"
     image_templates:
-      - "filebrowser/filebrowser:v{{ .Major }}-amd64"
-      - "filebrowser/filebrowser:v{{ .Major }}-arm64"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv6"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv7"
+      - "wutongpaas/filebrowser:v{{ .Major }}-amd64"
+      - "wutongpaas/filebrowser:v{{ .Major }}-arm64"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv7"
 ## s6 image manifests
-  - name_template: "filebrowser/filebrowser:s6"
+  - name_template: "wutongpaas/filebrowser:s6"
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-amd64-s6"
-      - "filebrowser/filebrowser:{{ .Tag }}-arm64-s6"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv6-s6"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv7-s6"
-  - name_template: "filebrowser/filebrowser:{{ .Tag }}-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-amd64-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-arm64-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv6-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv7-s6"
+  - name_template: "wutongpaas/filebrowser:{{ .Tag }}-s6"
     image_templates:
-      - "filebrowser/filebrowser:{{ .Tag }}-amd64-s6"
-      - "filebrowser/filebrowser:{{ .Tag }}-arm64-s6"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv6-s6"
-      - "filebrowser/filebrowser:{{ .Tag }}-armv7-s6"
-  - name_template: "filebrowser/filebrowser:v{{ .Major }}-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-amd64-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-arm64-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv6-s6"
+      - "wutongpaas/filebrowser:{{ .Tag }}-armv7-s6"
+  - name_template: "wutongpaas/filebrowser:v{{ .Major }}-s6"
     image_templates:
-      - "filebrowser/filebrowser:v{{ .Major }}-amd64-s6"
-      - "filebrowser/filebrowser:v{{ .Major }}-arm64-s6"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv6-s6"
-      - "filebrowser/filebrowser:v{{ .Major }}-armv7-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-amd64-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-arm64-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv6-s6"
+      - "wutongpaas/filebrowser:v{{ .Major }}-armv7-s6"
 brews:
   - name: filebrowser
     tap:
