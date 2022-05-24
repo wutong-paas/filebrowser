@@ -39,4 +39,3 @@ docker_manifests:
   - name_template: "wutongpaas/filebrowser:latest"
     image_templates:
       - "wutongpaas/filebrowser"
-      - "wutongpaas/filebrowser"
