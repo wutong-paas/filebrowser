@@ -1,10 +1,10 @@
 package storage
 
 import (
-	"github.com/filebrowser/filebrowser/v2/auth"
-	"github.com/filebrowser/filebrowser/v2/settings"
-	"github.com/filebrowser/filebrowser/v2/share"
-	"github.com/filebrowser/filebrowser/v2/users"
+	"github.com/wutong-paas/filebrowser/v2/auth"
+	"github.com/wutong-paas/filebrowser/v2/settings"
+	"github.com/wutong-paas/filebrowser/v2/share"
+	"github.com/wutong-paas/filebrowser/v2/users"
 )
 
 // Storage is a storage powered by a Backend which makes the necessary

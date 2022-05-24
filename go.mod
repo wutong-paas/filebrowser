@@ -1,4 +1,4 @@
-module github.com/filebrowser/filebrowser/v2
+module github.com/wutong-paas/filebrowser/v2
 
 go 1.18
 

@@ -3,7 +3,7 @@ package bolt
 import (
 	"github.com/asdine/storm/v3"
 
-	"github.com/filebrowser/filebrowser/v2/settings"
+	"github.com/wutong-paas/filebrowser/v2/settings"
 )
 
 type settingsBackend struct {

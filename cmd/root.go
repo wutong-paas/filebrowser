@@ -21,14 +21,14 @@ import (
 	v "github.com/spf13/viper"
 	lumberjack "gopkg.in/natefinch/lumberjack.v2"
 
-	"github.com/filebrowser/filebrowser/v2/auth"
-	"github.com/filebrowser/filebrowser/v2/diskcache"
-	"github.com/filebrowser/filebrowser/v2/frontend"
-	fbhttp "github.com/filebrowser/filebrowser/v2/http"
-	"github.com/filebrowser/filebrowser/v2/img"
-	"github.com/filebrowser/filebrowser/v2/settings"
-	"github.com/filebrowser/filebrowser/v2/storage"
-	"github.com/filebrowser/filebrowser/v2/users"
+	"github.com/wutong-paas/filebrowser/v2/auth"
+	"github.com/wutong-paas/filebrowser/v2/diskcache"
+	"github.com/wutong-paas/filebrowser/v2/frontend"
+	fbhttp "github.com/wutong-paas/filebrowser/v2/http"
+	"github.com/wutong-paas/filebrowser/v2/img"
+	"github.com/wutong-paas/filebrowser/v2/settings"
+	"github.com/wutong-paas/filebrowser/v2/storage"
+	"github.com/wutong-paas/filebrowser/v2/users"
 )
 
 var (
@@ -395,6 +395,8 @@ func initConfig() {
 		v.SetConfigFile(cfgFile)
 	}
 
+	customSetEnv()
+
 	v.SetEnvPrefix("FB")
 	v.AutomaticEnv()
 	v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
@@ -406,5 +408,12 @@ func initConfig() {
 		cfgFile = "No config file used"
 	} else {
 		cfgFile = "Using config file: " + v.ConfigFileUsed()
+	}
+}
+
+func customSetEnv() {
+	serviceID := os.Getenv("SERVICE_ID")
+	if len(serviceID) > 0 {
+		os.Setenv("FB_BASEURL", "/filebrowser/"+serviceID)
 	}
 }
