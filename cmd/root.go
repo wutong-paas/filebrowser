@@ -414,6 +414,6 @@ func initConfig() {
 func customSetEnv() {
 	serviceID := os.Getenv("SERVICE_ID")
 	if len(serviceID) > 0 {
-		os.Setenv("FB_BASEURL", "/filebrowser/"+serviceID)
+		os.Setenv("FB_BASEURL", "/console/filebrowser/"+serviceID)
 	}
 }
