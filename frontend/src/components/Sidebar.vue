@@ -1,6 +1,6 @@
 <template>
   <nav :class="{ active }">
-    <template v-if="isLogged">
+<!--    <template v-if="isLogged">-->
       <button
         class="action"
         @click="toRoot"
@@ -33,65 +33,65 @@
         </button>
       </div>
 
-      <div>
-        <button
-          class="action"
-          @click="toSettings"
-          :aria-label="$t('sidebar.settings')"
-          :title="$t('sidebar.settings')"
-        >
-          <i class="material-icons">settings_applications</i>
-          <span>{{ $t("sidebar.settings") }}</span>
-        </button>
+<!--      <div>-->
+<!--        <button-->
+<!--          class="action"-->
+<!--          @click="toSettings"-->
+<!--          :aria-label="$t('sidebar.settings')"-->
+<!--          :title="$t('sidebar.settings')"-->
+<!--        >-->
+<!--          <i class="material-icons">settings_applications</i>-->
+<!--          <span>{{ $t("sidebar.settings") }}</span>-->
+<!--        </button>-->
 
-        <button
-          v-if="authMethod == 'json'"
-          @click="logout"
-          class="action"
-          id="logout"
-          :aria-label="$t('sidebar.logout')"
-          :title="$t('sidebar.logout')"
-        >
-          <i class="material-icons">exit_to_app</i>
-          <span>{{ $t("sidebar.logout") }}</span>
-        </button>
-      </div>
-    </template>
-    <template v-else>
-      <router-link
-        class="action"
-        to="/login"
-        :aria-label="$t('sidebar.login')"
-        :title="$t('sidebar.login')"
-      >
-        <i class="material-icons">exit_to_app</i>
-        <span>{{ $t("sidebar.login") }}</span>
-      </router-link>
+<!--        <button-->
+<!--          v-if="authMethod == 'json'"-->
+<!--          @click="logout"-->
+<!--          class="action"-->
+<!--          id="logout"-->
+<!--          :aria-label="$t('sidebar.logout')"-->
+<!--          :title="$t('sidebar.logout')"-->
+<!--        >-->
+<!--          <i class="material-icons">exit_to_app</i>-->
+<!--          <span>{{ $t("sidebar.logout") }}</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </template>-->
+<!--    <template v-else>-->
+<!--      <router-link-->
+<!--        class="action"-->
+<!--        to="/login"-->
+<!--        :aria-label="$t('sidebar.login')"-->
+<!--        :title="$t('sidebar.login')"-->
+<!--      >-->
+<!--        <i class="material-icons">exit_to_app</i>-->
+<!--        <span>{{ $t("sidebar.login") }}</span>-->
+<!--      </router-link>-->
 
-      <router-link
-        v-if="signup"
-        class="action"
-        to="/login"
-        :aria-label="$t('sidebar.signup')"
-        :title="$t('sidebar.signup')"
-      >
-        <i class="material-icons">person_add</i>
-        <span>{{ $t("sidebar.signup") }}</span>
-      </router-link>
-    </template>
+<!--      <router-link-->
+<!--        v-if="signup"-->
+<!--        class="action"-->
+<!--        to="/login"-->
+<!--        :aria-label="$t('sidebar.signup')"-->
+<!--        :title="$t('sidebar.signup')"-->
+<!--      >-->
+<!--        <i class="material-icons">person_add</i>-->
+<!--        <span>{{ $t("sidebar.signup") }}</span>-->
+<!--      </router-link>-->
+<!--    </template>-->
 
     <p class="credits">
-      <span>
-        <span v-if="disableExternal">File Browser</span>
-        <a
-          v-else
-          rel="noopener noreferrer"
-          target="_blank"
-          href="https://github.com/wutong-paas/filebrowser"
-          >File Browser</a
-        >
-        <span> {{ version }}</span>
-      </span>
+<!--      <span>-->
+<!--        <span v-if="disableExternal">File Browser</span>-->
+<!--        <a-->
+<!--          v-else-->
+<!--          rel="noopener noreferrer"-->
+<!--          target="_blank"-->
+<!--          href="https://github.com/wutong-paas/filebrowser"-->
+<!--          >File Browser</a-->
+<!--        >-->
+<!--        <span> {{ version }}</span>-->
+<!--      </span>-->
       <span
         ><a @click="help">{{ $t("sidebar.help") }}</a></span
       >

@@ -1,0 +1,8 @@
+{
+  "port": 8080,
+  "baseURL": "",
+  "address": "",
+  "log": "stdout",
+  "database": "/Users/dp/temp/filebrowser.db",
+  "root": "/Users/dp/temp/filebrowser"
+}

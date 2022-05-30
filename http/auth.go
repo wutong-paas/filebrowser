@@ -63,28 +63,29 @@ func (e extractor) ExtractToken(r *http.Request) (string, error) {
 
 func withUser(fn handleFunc) handleFunc {
 	return func(w http.ResponseWriter, r *http.Request, d *data) (int, error) {
-		keyFunc := func(token *jwt.Token) (interface{}, error) {
-			return d.settings.Key, nil
-		}
+		//keyFunc := func(token *jwt.Token) (interface{}, error) {
+		//	return d.settings.Key, nil
+		//}
+		//
+		//var tk authToken
+		//token, err := request.ParseFromRequest(r, &extractor{}, keyFunc, request.WithClaims(&tk))
+		//
+		//if err != nil || !token.Valid {
+		//	return http.StatusUnauthorized, nil
+		//}
 
-		var tk authToken
-		token, err := request.ParseFromRequest(r, &extractor{}, keyFunc, request.WithClaims(&tk))
+		//expired := !tk.VerifyExpiresAt(time.Now().Add(time.Hour).Unix(), true)
+		//updated := d.store.Users.LastUpdate(tk.User.ID) > tk.IssuedAt
 
-		if err != nil || !token.Valid {
-			return http.StatusUnauthorized, nil
-		}
+		//if expired || updated {
+		//	w.Header().Add("X-Renew-Token", "true")
+		//}
 
-		expired := !tk.VerifyExpiresAt(time.Now().Add(time.Hour).Unix(), true)
-		updated := d.store.Users.LastUpdate(tk.User.ID) > tk.IssuedAt
-
-		if expired || updated {
-			w.Header().Add("X-Renew-Token", "true")
-		}
-
-		d.user, err = d.store.Users.Get(d.server.Root, tk.User.ID)
+		user, err := d.store.Users.Get(d.server.Root, "admin")
 		if err != nil {
 			return http.StatusInternalServerError, err
 		}
+		d.user = user
 		return fn(w, r, d)
 	}
 }

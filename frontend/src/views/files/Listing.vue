@@ -11,12 +11,12 @@
 
       <template #actions>
         <template v-if="!isMobile">
-          <action
-            v-if="headerButtons.share"
-            icon="share"
-            :label="$t('buttons.share')"
-            show="share"
-          />
+<!--          <action-->
+<!--            v-if="headerButtons.share"-->
+<!--            icon="share"-->
+<!--            :label="$t('buttons.share')"-->
+<!--            show="share"-->
+<!--          />-->
           <action
             v-if="headerButtons.rename"
             icon="mode_edit"
@@ -46,12 +46,12 @@
           />
         </template>
 
-        <action
-          v-if="headerButtons.shell"
-          icon="code"
-          :label="$t('buttons.shell')"
-          @action="$store.commit('toggleShell')"
-        />
+<!--        <action-->
+<!--          v-if="headerButtons.shell"-->
+<!--          icon="code"-->
+<!--          :label="$t('buttons.shell')"-->
+<!--          @action="$store.commit('toggleShell')"-->
+<!--        />-->
         <action
           :icon="viewIcon"
           :label="$t('buttons.switchView')"
