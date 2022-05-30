@@ -31,7 +31,7 @@ dockers:
     goos: linux
     goarch: amd64
     image_templates:
-      - "wutongpaas/filebrowser:v1"
+      - "wutongpaas/filebrowser:v1-amd64"
     extra_files:
       - docker_config.json
       
@@ -49,11 +49,12 @@ dockers:
     goos: linux
     goarch: arm64
     image_templates:
-      - "wutongpaas/filebrowser:v1"
+      - "wutongpaas/filebrowser:v1-arm64"
     extra_files:
       - docker_config.json
 
 docker_manifests:
   - name_template: "wutongpaas/filebrowser:v1"
     image_templates:
-      - "wutongpaas/filebrowser:v1"
+      - "wutongpaas/filebrowser:v1-arm64"
+      - "wutongpaas/filebrowser:v1-amd64"
