@@ -412,6 +412,7 @@ func initConfig() {
 }
 
 func customSetEnv() {
+	os.Setenv("FB_NOAUTH", "true")
 	serviceID := os.Getenv("SERVICE_ID")
 	if len(serviceID) > 0 {
 		os.Setenv("FB_BASEURL", "/console/filebrowser/"+serviceID)
