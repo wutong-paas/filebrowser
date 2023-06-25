@@ -10,8 +10,7 @@ RUN go mod download
 
 # Build
 ARG TARGETOS TARGETARCH TARGETPLATFORM
-RUN ls -l ./frontend/dist && \
- CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH GO111MODULE=on go build -a -o filebrowser-arm64 main.go
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH GO111MODULE=on go build -a -o filebrowser main.go
 
 FROM --platform=$TARGETPLATFORM alpine:latest AS final
 RUN apk --update add ca-certificates \
