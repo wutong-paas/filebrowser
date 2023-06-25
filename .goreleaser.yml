@@ -12,6 +12,8 @@ build:
   binary: filebrowser
   goos:
     - linux
+    - windows
+    - darwin
   goarch:
     - amd64
     - arm64
@@ -31,7 +33,7 @@ dockers:
     goos: linux
     goarch: amd64
     image_templates:
-      - "swr.cn-southwest-2.myhuaweicloud.com/wutong/filebrowser:latest"
+      - "wutongpaas/filebrowser:latest-amd64"
     extra_files:
       - docker_config.json
       
@@ -49,11 +51,12 @@ dockers:
     goos: linux
     goarch: arm64
     image_templates:
-      - "swr.cn-southwest-2.myhuaweicloud.com/wutong/filebrowser:latest"
+      - "wutongpaas/filebrowser:latest-arm64"
     extra_files:
       - docker_config.json
 
 docker_manifests:
-  - name_template: "swr.cn-southwest-2.myhuaweicloud.com/wutong/filebrowser:latest"
+  - name_template: "wutongpaas/filebrowser:latest"
     image_templates:
-      - "swr.cn-southwest-2.myhuaweicloud.com/wutong/filebrowser:latest"
+      - "wutongpaas/filebrowser:latest-arm64"
+      - "wutongpaas/filebrowser:latest-amd64"

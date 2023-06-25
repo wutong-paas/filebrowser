@@ -317,7 +317,7 @@ func quickSetup(flags *pflag.FlagSet, d pythonData) {
 		CreateUserDir: false,
 		Defaults: settings.UserDefaults{
 			Scope:       ".",
-			Locale:      "en",
+			Locale:      "zh-cn",
 			SingleClick: false,
 			Perm: users.Permissions{
 				Admin:    false,
@@ -412,7 +412,12 @@ func initConfig() {
 }
 
 func customSetEnv() {
-	serviceID := os.Getenv("SERVICE_ID")
+	os.Setenv("FB_NOAUTH", "true")
+	serviceID := os.Getenv("WT_SERVICE_ID")
+	if len(serviceID) == 0 {
+		// 兼容旧的环境变量
+		serviceID = os.Getenv("SERVICE_ID")
+	}
 	if len(serviceID) > 0 {
 		os.Setenv("FB_BASEURL", "/console/filebrowser/"+serviceID)
 	}

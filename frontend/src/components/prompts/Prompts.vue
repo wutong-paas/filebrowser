@@ -15,11 +15,11 @@ import Move from "./Move";
 import Copy from "./Copy";
 import NewFile from "./NewFile";
 import NewDir from "./NewDir";
-import Replace from "./Replace";
-import ReplaceRename from "./ReplaceRename";
-import Share from "./Share";
+// import Replace from "./Replace";
+// import ReplaceRename from "./ReplaceRename";
+// import Share from "./Share";
 import Upload from "./Upload";
-import ShareDelete from "./ShareDelete";
+// import ShareDelete from "./ShareDelete";
 import { mapState } from "vuex";
 import buttons from "@/utils/buttons";
 
@@ -32,14 +32,14 @@ export default {
     Download,
     Move,
     Copy,
-    Share,
+    // Share,
     NewFile,
     NewDir,
     Help,
-    Replace,
-    ReplaceRename,
+    // Replace,
+    // ReplaceRename,
     Upload,
-    ShareDelete,
+    // ShareDelete,
   },
   data: function () {
     return {
@@ -74,9 +74,9 @@ export default {
           case "move":
             prompt.move(event);
             break;
-          case "replace":
-            prompt.showConfirm(event);
-            break;
+          // case "replace":
+          //   prompt.showConfirm(event);
+          //   break;
         }
       }
     });
@@ -95,11 +95,11 @@ export default {
           "newFile",
           "newDir",
           "download",
-          "replace",
-          "replace-rename",
-          "share",
+          // "replace",
+          // "replace-rename",
+          // "share",
           "upload",
-          "share-delete",
+          // "share-delete",
         ].indexOf(this.show) >= 0;
 
       return (matched && this.show) || null;
