@@ -8,7 +8,7 @@
 # 2. docker login dockerhub
 
 export NAMESPACE=filebrowser
-export VERSION=v1.0.0-stable
+export VERSION=latest
 # docker buildx create --use --name filebrowserbuilder
 docker buildx use filebrowserbuilder
 docker buildx build --platform linux/arm64 --push -t wutongpaas/${NAMESPACE}:${VERSION} -f Dockerfile . 
