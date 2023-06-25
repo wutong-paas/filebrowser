@@ -6,7 +6,7 @@ env:
 
 on:
   push:
-    branches: [noauth]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
