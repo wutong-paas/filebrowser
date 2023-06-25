@@ -1,20 +1,16 @@
 # Build the manager binary
-FROM --platform=$TARGETPLATFORM golang:1.18 as builder
+FROM --platform=$TARGETPLATFORM golang:1.18 AS builder
 WORKDIR /workspace
 # Copy the Go Modules manifests
-COPY go.mod go.mod
-COPY go.sum go.sum
+COPY . .
 ENV GOPROXY=https://goproxy.cn,direct
 # cache deps before building and copying source so that we don't need to re-download as much
 # and so that source changes don't invalidate our downloaded layer
 RUN go mod download
 
-# Copy the go source
-COPY . .
-
 # Build
 ARG TARGETOS TARGETARCH TARGETPLATFORM
-RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH GO111MODULE=on go build -a -o filebrowser main.go
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH GO111MODULE=on go build -a -o ./bin/filebrowser-arm64 main.go
 
 FROM --platform=$TARGETPLATFORM alpine:latest AS final
 RUN apk --update add ca-certificates \
@@ -30,4 +26,4 @@ EXPOSE 80
 COPY docker_config.json /.filebrowser.json
 COPY --from=builder /workspace/filebrowser /filebrowser
 
-CMD ["/filebrowser"]
+ENTRYPOINT [ "/filebrowser" ]
