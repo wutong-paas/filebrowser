@@ -1,6 +1,6 @@
 <template>
   <header>
-<!--    <img v-if="showLogo !== undefined" :src="logoURL" />-->
+    <!--    <img v-if="showLogo !== undefined" :src="logoURL" />-->
     <action
       v-if="showMenu !== undefined"
       class="menu-button"
@@ -25,7 +25,7 @@
 
     <div
       class="overlay"
-      v-show="this.$store.state.show == 'more'"
+      v-if="this.$store.state.show == 'more'"
       @click="$store.commit('closeHovers')"
     />
   </header>
