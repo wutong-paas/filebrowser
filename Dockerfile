@@ -1,15 +1,14 @@
-FROM alpine:latest
-RUN apk --update add ca-certificates \
-                     mailcap \
-                     curl
+FROM swr.cn-southwest-2.myhuaweicloud.com/wutong/alpine:3.15
+ARG TARGETARCH
 
-HEALTHCHECK --start-period=2s --interval=5s --timeout=3s \
-  CMD curl -f http://localhost/health || exit 1
+RUN mkdir /app \
+  && apk add --update apache2-utils \
+  && rm -rf /var/cache/apk/*
+ENV TZ=Asia/Shanghai
 
-VOLUME /srv
-EXPOSE 80
+WORKDIR /
 
 COPY docker_config.json /.filebrowser.json
-COPY filebrowser /filebrowser
+COPY bin/${TARGETARCH}/filebrowser .
 
-ENTRYPOINT [ "/filebrowser" ]
+CMD ["/filebrowser"]
