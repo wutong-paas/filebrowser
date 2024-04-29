@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export TAG=v0.1.16
+export TAG=v3.0.0-alpha.1
 
 git add .
 git commit -m "release ${TAG}"
